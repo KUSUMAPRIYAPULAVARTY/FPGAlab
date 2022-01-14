@@ -2,16 +2,18 @@
 #include<stdbool.h>
 int main()
 {
-    bool x=false,y;int result=0;
+    bool x=false,y,lhs,rhs;
+    printf("X Y LHS RHS\n");
     for(int i=0;i<=1;++i)
     {   y=false;
         for(int j=0;j<=1;++j)
         {
-            if((x||(!y))!=((x&&y)||(x&&(!y))||((!x)&&(!y)))) ++result;
+                lhs=x||(!y);
+                rhs=(x&&y)||(x&&(!y))||((!x)&&(!y));
+                printf("%d %d %d   %d\n", x,y,lhs,rhs);
                 y=true;
         }
         x=true;
     }
-    (result==0)? (printf("LHS=RHS")):(printf("LHS and RHS are not equal"));
     return 0;
 }
